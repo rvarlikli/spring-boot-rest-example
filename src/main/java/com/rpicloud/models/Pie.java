@@ -18,10 +18,12 @@ public class Pie {
 
     private String name;
     private String description;
+    private String author;
 
-    public Pie(String name, String description) {
+    public Pie(String name, String description, String author) {
         this.name = name;
         this.description = description;
+        this.author =author;
     }
 
     //for JPA
@@ -33,5 +35,9 @@ public class Pie {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 }
