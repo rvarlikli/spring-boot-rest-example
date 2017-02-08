@@ -24,7 +24,7 @@
     {
       "type": "file",
       "source":"{{user `JAR_FILE`}}",
-      "target": "/var/opt/{{user `JAR_FILE`}}"
+      "destination": "/var/opt/{{user `JAR_FILE`}}"
     }
   ],
   "post-processors": [
