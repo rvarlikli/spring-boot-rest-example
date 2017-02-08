@@ -1,0 +1,38 @@
+{
+  "variables": {
+    "BASE_IMAGE": "java",
+    "BASE_IMAGE_VERSION": "openjdk-8-alpine",
+    "EXPORT_IMAGE": "cloudnesil/pie-app",
+    "JAR_FILE": "{{env `JAR_FILE`}}"
+  },
+  "builders": [
+    {
+      "type": "docker",
+      "pull": true,
+      "image": "{{user `BASE_IMAGE`}}:{{user `BASE_IMAGE_VERSION`}}",
+      "commit": true,
+      "changes": ["CMD java -jar /var/opt/app/{{user `JAR_FILE`}}"]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "mkdir /var/opt/app"
+      ]
+    },
+    {
+      "type": "file",
+      "source":"{{user `JAR_FILE`}}",
+      "target": "/var/opt/{{user `JAR_FILE`}}"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "docker-tag",
+      "repository": "{{user `EXPORT_IMAGE`}}",
+      "tag": "latest"
+    }
+  ]
+}
+
