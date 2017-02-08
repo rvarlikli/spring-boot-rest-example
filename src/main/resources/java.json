@@ -11,7 +11,8 @@
       "pull": true,
       "image": "{{user `BASE_IMAGE`}}:{{user `BASE_IMAGE_VERSION`}}",
       "commit": true,
-      "changes": ["CMD java -jar /var/opt/app/{{user `JAR_FILE`}}"]
+      "changes": ["CMD java -jar /var/opt/app/{{user `JAR_FILE`}}"],
+      "run_command": ["-d", "-i", "-t", "{{.Image}}", "/bin/sh"]
     }
   ],
   "provisioners": [
