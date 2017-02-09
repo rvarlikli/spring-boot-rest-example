@@ -26,7 +26,7 @@ public class SpringBootRestExampleApplication {
             repository.deleteAll();
             //Insert some random pies
             for(int i = 0; i < 20; i++) {
-                repository.save(new Pie(faker.lorem().word(), faker.lorem().sentence(), faker.lorem().word()+" "+ faker.lorem().word()));
+                repository.save(new Pie(faker.lorem().word(), faker.lorem().sentence(), "Deploy Test.... "+faker.lorem().word()+" "+ faker.lorem().word()));
             }
         };
     }
