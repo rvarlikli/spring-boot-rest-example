@@ -9,8 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 
-import java.util.Arrays;
-
 @SpringBootApplication
 public class SpringBootRestExampleApplication {
 
@@ -22,7 +20,7 @@ public class SpringBootRestExampleApplication {
 
     @Bean
     public CommandLineRunner initializeDb(PieRepository repository){
-        return (args) -> {
+        return args -> {
             repository.deleteAll();
             //Insert some random pies
             for(int i = 0; i < 20; i++) {

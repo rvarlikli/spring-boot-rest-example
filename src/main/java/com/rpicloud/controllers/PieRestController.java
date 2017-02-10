@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by kaspernissen on 11/02/2016.
@@ -36,7 +35,7 @@ public class PieRestController {
         }
 
         @RequestMapping(method = RequestMethod.POST)
-        public ResponseEntity<?> addPie(@RequestBody Pie input) {
+        public ResponseEntity<Pie> addPie(@RequestBody Pie input) {
             return new ResponseEntity<>(repository.save(input), HttpStatus.CREATED);
         }
 }

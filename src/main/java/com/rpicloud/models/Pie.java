@@ -27,7 +27,9 @@ public class Pie {
     }
 
     //for JPA
-    public Pie() {}
+    public Pie() {
+        new Pie("Test", "Test desc","Test author");
+    }
 
     public String getName() {
         return name;
